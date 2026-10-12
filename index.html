@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HandMade Hub — اصنعها... اعرضها... وبيعها</title>
+  <meta name="description" content="منصة للمنتجات اليدوية وتعلّم صناعتها وتسويقها">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container header-in">
+    <a href="#" class="logo" data-act="nav" data-view="home" aria-label="HandMade Hub">
+      <span class="logo-mark">🧶</span><span class="logo-text">HandMade Hub</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="التنقل الرئيسي"></nav>
+
+    <div class="header-actions" id="headerActions"></div>
+
+    <button class="burger" id="burger" data-act="menu" aria-label="القائمة">☰</button>
+  </div>
+</header>
+
+<main id="app">
+
+  <!-- ============ HOME ============ -->
+  <section class="view" id="view-home">
+    <div class="hero">
+      <div class="container hero-in">
+        <div class="hero-text">
+          <span class="slogan">اصنعها... اعرضها... وبيعها</span>
+          <h1>اكتشف منتجات <em>مصنوعة بحب</em></h1>
+          <p>اشتري منتجات يدوية مميزة أو تعلم كيف تصنع وتسوق منتجاتك بنفسك.</p>
+          <div class="hero-btns">
+            <button class="btn btn-primary btn-lg" data-act="nav" data-view="products">🛍️ استكشف المنتجات</button>
+            <button class="btn btn-outline btn-lg" data-act="nav" data-view="courses">📚 ابدأ التعلم</button>
+          </div>
+          <ul class="hero-points">
+            <li>🧑‍🎨 +120 صانع محلي</li>
+            <li>✨ جرّب المنتج بالـ AR</li>
+            <li>🎤 تنقّل بصوتك</li>
+          </ul>
+        </div>
+        <div class="hero-cards" id="heroCards" aria-hidden="false"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2 class="sec-title">تسوّق حسب التصنيف</h2>
+      <div class="cat-grid" id="homeCats"></div>
+
+      <div class="sec-head">
+        <h2 class="sec-title">الأكثر حبًا ❤️</h2>
+        <button class="link-btn" data-act="nav" data-view="products">عرض الكل ←</button>
+      </div>
+      <div class="grid" id="homeFeatured"></div>
+
+      <h2 class="sec-title">منصة واحدة... تلات طرق</h2>
+      <div class="trio">
+        <article class="trio-card c1">
+          <div class="trio-ico">🛍️</div>
+          <h3>اشتري منتج يدوي</h3>
+          <p>منتجات فريدة من صنّاع محليين، وجرّبها في مكانك قبل ما تشتري.</p>
+          <button class="btn btn-primary" data-act="nav" data-view="products">تسوّق الآن</button>
+        </article>
+        <article class="trio-card c2">
+          <div class="trio-ico">🧑‍🎨</div>
+          <h3>اعرض وبِع منتجك</h3>
+          <p>افتح متجرك، انشر منتجاتك، وتابع مبيعاتك من لوحة بسيطة.</p>
+          <button class="btn btn-primary" data-act="login" data-role="seller">دخول كصاحب منتج</button>
+        </article>
+        <article class="trio-card c3">
+          <div class="trio-ico">📚</div>
+          <h3>تعلّم الصنعة والتسويق</h3>
+          <p>كورسات عن الصناعة، التصوير، التسعير والتسويق على السوشيال ميديا.</p>
+          <button class="btn btn-primary" data-act="nav" data-view="courses">شوف الكورسات</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRODUCTS ============ -->
+  <section class="view" id="view-products">
+    <div class="container">
+      <div class="page-head">
+        <h1>🛍️ سوق المنتجات اليدوية</h1>
+        <p>كل قطعة لها حكاية... اختار اللي يعجبك.</p>
+      </div>
+      <div class="toolbar">
+        <input type="search" id="searchBox" class="input" placeholder="🔍 ابحث عن منتج أو صانع…">
+      </div>
+      <div class="chips" id="catChips" role="tablist"></div>
+      <p class="result-count" id="resultCount"></p>
+      <div class="grid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ PRODUCT DETAILS ============ -->
+  <section class="view" id="view-product">
+    <div class="container" id="productDetail"></div>
+  </section>
+
+  <!-- ============ AR ============ -->
+  <section class="view" id="view-ar">
+    <div class="container" id="arWrap"></div>
+  </section>
+
+  <!-- ============ COURSES ============ -->
+  <section class="view" id="view-courses">
+    <div class="container">
+      <div class="page-head">
+        <h1>تعلم... وابدأ مشروعك</h1>
+        <p>كورسات بسيطة تاخدك من الفكرة لحد أول عملية بيع.</p>
+      </div>
+      <div class="grid courses-grid" id="courseGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ COURSE DETAILS ============ -->
+  <section class="view" id="view-course">
+    <div class="container" id="courseDetail"></div>
+  </section>
+
+  <!-- ============ SELLER DASHBOARD ============ -->
+  <section class="view" id="view-dashboard">
+    <div class="container" id="dashWrap"></div>
+  </section>
+
+  <!-- ============ ADD / EDIT PRODUCT ============ -->
+  <section class="view" id="view-add">
+    <div class="container narrow" id="addWrap"></div>
+  </section>
+
+  <!-- ============ CART ============ -->
+  <section class="view" id="view-cart">
+    <div class="container narrow" id="cartWrap"></div>
+  </section>
+
+  <!-- ============ FAVORITES ============ -->
+  <section class="view" id="view-favs">
+    <div class="container">
+      <div class="page-head">
+        <h1>❤️ المفضلة</h1>
+        <p>المنتجات اللي حبّيتها في مكان واحد.</p>
+      </div>
+      <div class="grid" id="favGrid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <strong>HandMade Hub</strong> — اصنعها... اعرضها... وبيعها
+    <small>نموذج تجريبي (Prototype) — كل البيانات تجريبية ولا يوجد دفع حقيقي.</small>
+  </div>
+</footer>
+
+<!-- ============ VOICE ASSISTANT ============ -->
+<button class="fab" id="fab" data-act="voice" aria-label="المساعد الصوتي">🎤</button>
+<aside class="vpanel" id="vpanel" hidden aria-label="المساعد الصوتي">
+  <div class="vhead">
+    <h3>🎤 المساعد الصوتي</h3>
+    <div>
+      <button class="icon-btn" id="speakBtn" data-act="speak" title="قراءة الردود بصوت عالٍ" aria-pressed="false">🔇</button>
+      <button class="icon-btn" data-act="voice" aria-label="إغلاق">✕</button>
+    </div>
+  </div>
+  <div class="vlog" id="vlog" aria-live="polite"></div>
+  <div class="vstatus" id="vstatus" hidden>🎤 جاري الاستماع…</div>
+  <div class="vchips" id="vchips"></div>
+  <form class="vform" id="vform" autocomplete="off">
+    <button type="button" class="mic" id="vmic" aria-label="تحدّث">🎤</button>
+    <input id="vinput" class="input" placeholder="اكتب طلبك أو اضغط على الميكروفون…">
+    <button class="btn btn-primary btn-sm" type="submit">إرسال</button>
+  </form>
+  <small class="vnote">محاكاة للتعرف على الصوت — واجهة تجريبية فقط.</small>
+</aside>
+
+<!-- ============ AUTH MODAL ============ -->
+<div class="modal" id="authModal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <button class="icon-btn modal-x" data-act="closeauth" aria-label="إغلاق">✕</button>
+    <div class="modal-emoji">🧶</div>
+    <h2 id="authTitle">تسجيل الدخول</h2>
+    <p id="authHint">اختار نوع الحساب للدخول (محاكاة بدون تسجيل حقيقي).</p>
+    <div class="auth-choices">
+      <button class="auth-opt" data-act="login" data-role="buyer">
+        <span>🛍️</span><strong>دخول كمشتري</strong><small>تصفح، فضّل، جرّب AR، واطلب</small>
+      </button>
+      <button class="auth-opt" data-act="login" data-role="seller">
+        <span>🧑‍🎨</span><strong>دخول كصاحب منتج</strong><small>انشر منتجاتك وتابع مبيعاتك</small>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
